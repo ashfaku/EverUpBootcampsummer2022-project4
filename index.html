@@ -5,21 +5,37 @@
 		<style></style>
 		<link rel = "stylesheet" href = "style.css">
 		<script src = "script.js"></script>
+		<script src="https://kit.fontawesome.com/0137bf0349.js" crossorigin="anonymous"></script>
+  
 		<script></script>
 	</head>
 	<body onload = "init();">
 		<div id = "header">
 			<!-- https://codepen.io/sosuke/pen/Pjoqqp figure out what color we want for logo !-->
-			<img src = "resources/logo.svg" id = "logo">
-			<div id = "address">
-				<div id = "wrapperAdd">
-					<div id = "deliver">Deliver to</div>
-					<div id = "location">Brooklyn 00000</div>
+			<div id = "left">
+				<img src = "resources/logo.svg" id = "logo">
+				<div id = "address">
+					<div id = "wrapperAdd">
+						<div id = "deliver">Hello, sign in</div>
+						<div id = "location">Account and Lists</div>
+					</div>
 				</div>
 			</div>
-			<div id = "leftWrapper"><button id = "inputLeft">All</button></div>
-			
+			<div id = "right">
+				<select name = "cars" id = "inputLeft">
+					<option value="volvo">All</option>
+					<option value="saab">Saab</option>
+					<option value="mercedes">Mercedes</option>
+					<option value="audi">Audi</option>
+				</select>		
+				<input placeholder = "Type in what you wish for"></input>
+				<button></button>
+			</div>
+		</div>		
+		<div id = "slide">
+			<button onclick = "back();" id = "back">&lt</button>
+			<button onclick = "forward();" id = "forward">&gt</button>
 		</div>
-	
+		<div id = "test">Hieurfegoiutjnfkjiorhfjfoiuh</div>
 	</body>
 </html>
