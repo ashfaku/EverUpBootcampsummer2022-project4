@@ -141,7 +141,7 @@ input
 		font-size: 2vh;
 	}
 }
-@keyframes slides
+/*@keyframes slides
 {
 	0%
 	{
@@ -168,8 +168,8 @@ input
 		transform: translateX(-200%);
 	}
 }
-
-#slide
+*/
+#slides
 {
 	display: flex;
 	width: 100%;
@@ -177,28 +177,24 @@ input
 	font-size: 2vw;
 	position: absolute;
 	overflow: hidden;
-	z-index: -1;
 }
-#slide div
+#slides div.slide
 {
 	min-width: 100%;
 	text-align: center;
-	/*animation: slides 12s ease-in-out 0s infinite;
-*/}
-#test
-{
-	z-index: 1;
+	z-index: -1;
 }
-#slide > div
+
+#slides > div.slide
 {
 	background-repeat: no-repeat;
     background-size: 100%;
-
+	position: relative;
 }
-#slide button
+#slides button
 {
 	position: absolute;
-	z-index: 1;
+	z-index: 2;
 	height: 100%;
 	width: 3%;
 	font-size: 5vh;
@@ -210,22 +206,26 @@ input
 {
 	left: 97%;
 }
-#slide div:nth-child(1)
+#grid
 {
-}
-#slide div:nth-child(2)
-{
+	min-width: 20vw;
+	min-height: 20vw;
+	max-height: 20vw;
+	max-width: 20vw;
+	position: relative;
+	top: 10%;
+	left: 15%;
 	background-color: green;
+	display: flex;
+	flex-wrap: wrap;
 }
-#slide div:nth-child(3)
+.square
 {
-	background-color: orange;
-}
-#slide div:nth-child(4)
-{
-	background-color: blue;
-}
-#slide div:nth-child(5)
-{
-	background-color: pink;
+	background-repeat:  no-repeat;
+	background-size: 100%;
+	margin-left: 2vw;
+	min-width: 7vw;
+	max-width: 7vw;
+	min-height: 7vw;
+	max-height: 7vw;
 }

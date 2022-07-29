@@ -2,10 +2,10 @@ let id = null;
 let pos = 1;
 var i = 0;
 let direction = window.innerWidth / 750;
+var slideList = [];
 function frame() 
 {
-	var slides = document.getElementById("slide").childNodes;   
-	if (pos >= (window.innerWidth*.3)) 
+	if (pos >= (window.innerWidth*2)) 
 	{
 		direction *= -1;
 		pos -= 5;
@@ -15,10 +15,8 @@ function frame()
 		direction *= -1;
 		pos = 5;
 	}
-	slides.forEach(slide => {
-		var l = (window.innerWidth*i) + pos;
-		slide.style.left = l + "px";
-		i++;
+	slideList.forEach(slide => {
+		slide.style.left = (window.innerWidth*i - pos) + "px";
 	});
 	i %= 3;
 	pos += direction;
@@ -26,19 +24,33 @@ function frame()
 function myMove() 
 {
 	clearInterval(id);
-//	id = setInterval(frame, 100);
+	id = setInterval(frame, 5);
 
+}					
+function forward()
+{
+	console.log(1);
+	if (pos < window.innerWidth*1)
+		pos += window.innerWidth;
+}	
+function back()
+{
+	console.log(1);
+	if (pos > window.innerWidth)
+		pos -= window.innerWidth;
 }
-myMove();
-						
 function init()
 {
-	var slide = document.getElementById("slide");
-	var images = ['one.jpg', 'two.jpg', 'three.jpg'];
+	var slides = document.getElementById("slides");
+	var images = ['two.jpg', 'one.jpg', 'three.jpg'];
 	for (let i = 0; i < images.length; i++)
 	{
 		var div = document.createElement("div");
-		slide.appendChild(div);
-		div.style.backgroundImage = `url("resources/${images[i]}")`;
+		slides.appendChild(div);
+		slideList.push(div);
+		div.style.backgroundImage = `url("resources/slides/${images[i]}")`;
+		div.classList.add("slide");
 	}
+	
+	myMove();
 }
