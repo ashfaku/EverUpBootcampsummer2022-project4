@@ -3,17 +3,18 @@ let pos = 1;
 var i = 0;
 let direction = window.innerWidth / 750;
 var slideList = [];
+let speed = 5;
 function frame() 
 {
-	if (pos >= (window.innerWidth*2)) 
+	if (pos >= (window.innerWidth*3)) 
 	{
 		direction *= -1;
-		pos -= 5;
+		pos -= window.innerWidth / 750;
 	} 
 	else if (pos <= 0)
 	{
 		direction *= -1;
-		pos = 5;
+		pos = direction;
 	}
 	slideList.forEach(slide => {
 		slide.style.left = (window.innerWidth*i - pos) + "px";
@@ -24,18 +25,16 @@ function frame()
 function myMove() 
 {
 	clearInterval(id);
-	id = setInterval(frame, 5);
+	id = setInterval(frame, speed);
 
 }					
 function forward()
 {
-	console.log(1);
 	if (pos < window.innerWidth*1)
 		pos += window.innerWidth;
 }	
 function back()
 {
-	console.log(1);
 	if (pos > window.innerWidth)
 		pos -= window.innerWidth;
 }
@@ -50,7 +49,111 @@ function init()
 		slideList.push(div);
 		div.style.backgroundImage = `url("resources/slides/${images[i]}")`;
 		div.classList.add("slide");
-	}
-	
+	}	
 	myMove();
+	var mainPageContent = document.getElementById("mainPageContent");
+	var saleContent = [
+		{
+			title: "Vacation Apparel",
+			images: [
+				'resources/apparel/one.jpg', 
+				'resources/apparel/two.jpg', 
+				'resources/apparel/three.jpg', 
+				'resources/apparel/four.jpg'
+			]
+		},
+		{
+			title: "Vacation Apparel",
+			images: [
+				'resources/apparel/one.jpg',
+				'resources/apparel/two.jpg', 
+				'resources/apparel/three.jpg', 
+				'resources/apparel/four.jpg'
+			]
+		},
+		{
+			title: "Vacation Apparel",
+			images: [
+				'resources/apparel/one.jpg', 
+				'resources/apparel/two.jpg', 
+				'resources/apparel/three.jpg', 
+				'resources/apparel/four.jpg'
+			]
+		
+		},
+		{
+			title: "Vacation Apparel",
+			images: ['resources/apparel/one.jpg', 'resources/apparel/two.jpg', 'resources/apparel/three.jpg', 'resources/apparel/four.jpg']
+		},
+		{
+			title: "Vacation Apparel",
+			images: ['resources/apparel/one.jpg', 'resources/apparel/two.jpg', 'resources/apparel/three.jpg', 'resources/apparel/four.jpg']
+		},
+		{
+			title: "Vacation Apparel",
+			images: ['resources/apparel/one.jpg', 'resources/apparel/two.jpg', 'resources/apparel/three.jpg', 'resources/apparel/four.jpg']
+		},
+		{
+			title: "Vacation Apparel",
+			images: ['resources/apparel/one.jpg', 'resources/apparel/two.jpg', 'resources/apparel/three.jpg', 'resources/apparel/four.jpg']
+		},
+		{
+			title: "Vacation Apparel",
+			images: ['resources/apparel/one.jpg', 'resources/apparel/two.jpg', 'resources/apparel/three.jpg', 'resources/apparel/four.jpg']
+		},
+		{
+			title: "Vacation Apparel",
+			images: ['resources/apparel/one.jpg', 'resources/apparel/two.jpg', 'resources/apparel/three.jpg', 'resources/apparel/four.jpg']
+		},
+		{
+			title: "Vacation Apparel",
+			images: ['resources/apparel/one.jpg', 'resources/apparel/two.jpg', 'resources/apparel/three.jpg', 'resources/apparel/four.jpg']
+		},
+		{
+			title: "Vacation Apparel",
+			images: ['resources/apparel/one.jpg', 'resources/apparel/two.jpg', 'resources/apparel/three.jpg', 'resources/apparel/four.jpg']
+		},
+		{
+			title: "Vacation Apparel",
+			images: ['resources/apparel/one.jpg', 'resources/apparel/two.jpg', 'resources/apparel/three.jpg', 'resources/apparel/four.jpg']
+		},
+		{
+			title: "Vacation Apparel",
+			images: ['resources/apparel/one.jpg', 'resources/apparel/two.jpg', 'resources/apparel/three.jpg', 'resources/apparel/four.jpg']
+		},
+		{
+			title: "Vacation Apparel",
+			images: ['resources/apparel/one.jpg', 'resources/apparel/two.jpg', 'resources/apparel/three.jpg', 'resources/apparel/four.jpg']
+		},
+		{
+			title: "Vacation Apparel",
+			images: ['resources/apparel/one.jpg', 'resources/apparel/two.jpg', 'resources/apparel/three.jpg', 'resources/apparel/four.jpg']
+		}
+	];
+	for (let i = 0; i < saleContent.length; i++)
+	{
+		var container = document.createElement("div");
+		
+		var header = document.createElement("div");
+		header.innerHTML = saleContent[i].title;
+		container.appendChild(header);
+		
+		var grid = document.createElement("div");
+		grid.classList.add("grid");
+		console.log(saleContent[i]);
+		var images = saleContent[i].images;
+		console.log(i)
+		console.log(images);
+		for (let j = 0; j < images.length; j++)
+		{
+			var img = document.createElement("div");
+			img.classList.add("square");
+			img.style.backgroundImage = `url('${images[j]}')`;	
+			grid.appendChild(img);
+		}
+		console.log(grid);
+		container.appendChild(grid);
+		mainPageContent.appendChild(container);
+	}
+
 }
