@@ -169,6 +169,13 @@ input
 		min-width: 20%;
 		height: auto;
 	}
+	#buttonRow
+	{
+		display: block;
+		overflow-y: auto;
+		overflow-x: hidden;
+		max-width: 100%;
+	}
 }
 /*@keyframes slides
 {
@@ -234,7 +241,7 @@ input
 }
 #forward
 {
-	left: 90%;
+	right: 0%;
 }
 #grid, #gridtwo
 {
@@ -281,14 +288,75 @@ input
 	background-image: linear-gradient(to right, rgba(255,182,193,.5), rgba(203,195,227,.5));
 	min-height: 22vw;
 	max-height: 22vw;
+	margin-left: 2vw;
+	margin-top: 2vw;
 }
 .grid
 {
 	display: flex;
 	flex-wrap: wrap;
 }
+#buttonRow
+{
+	height: 8%;
+	background-color: #000030;
+	display: flex;
+	overflow-y: hidden;
+	overflow-x: auto;
+	align-items: center;
+}
 
+@media (min-width: 768px) 
+{
+	#buttonRow button 
+	{
+		padding: 0.25em 0.75em;
+	}
+}
 
+#buttonRow button:active
+{ 
+	box-shadow: 0px 0px 0px 0px;
+	top: 5px;
+	left: 5px;
+}
+#buttonRow::-webkit-scrollbar 
+{
+	width: 12px;
+	height: 12px;
+}
+#buttonRow::-webkit-scrollbar-track 
+{
+	border-radius: 10px;
+	background-color: rgba(0, 0, 0, 0.4);
+}
+#buttonRow::-webkit-scrollbar-thumb 
+{
+	background-color: #aab74d;
+	background-image:-webkit-linear-gradient(rgba(255,255,255,.3) 20%,transparent 20%,transparent 40%,rgba(255, 255, 255, 0.3) 40%,rgba(255,255,255,.3) 60%,transparent 60%,transparent 80%,rgba(255, 255, 255, 0.3) 80%);
+	border-radius: 10px;
+}
+#buttonRow button
+{
+	height: 100%;
+	min-width: 10%;
+	margin-left: 1%;
+	text-align: center;
+	font-size: 1vw;
+	font-family: "Open Sans", sans-serif;
+	letter-spacing: 2px;
+	text-decoration: none;
+	text-transform: uppercase;
+	color: #000;
+	cursor: pointer;
+	border: none;
+	padding: 0.25em 0.5em;
+	box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px, 5px 5px 0px 0px;
+	position: relative;
+	user-select: none;
+	-webkit-user-select: none;
+	touch-action: manipulation;
+}
 
 
 

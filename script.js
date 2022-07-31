@@ -142,8 +142,6 @@ function init()
 		grid.classList.add("grid");
 		console.log(saleContent[i]);
 		var images = saleContent[i].images;
-		console.log(i)
-		console.log(images);
 		for (let j = 0; j < images.length; j++)
 		{
 			var img = document.createElement("div");
@@ -151,9 +149,45 @@ function init()
 			img.style.backgroundImage = `url('${images[j]}')`;	
 			grid.appendChild(img);
 		}
-		console.log(grid);
 		container.appendChild(grid);
 		mainPageContent.appendChild(container);
 	}
-
+	var buttons = [
+			'Best Sellers',
+			'Amazon Basics',
+			'Today\'s Deals',
+			'New Releases',
+			'Customer Service',
+			'Prime',
+			'Music',
+			'Books',
+			'Kindle Books',
+			'Amazon Home',
+			'Registry',
+			'Fashion',
+			'Gift Cards',
+			'Toys & Games',
+			'Handmade',
+			'Sell',
+			'Amazon Explore',
+			'Automotive',
+			'Coupons',
+			'Pharmacy',
+			'Computers',
+			'Home Improvement',
+			'Beauty & Personal Care',
+			'Pet Supplies',
+			'Luxury Stores',
+			'Video Games',
+			'Shopper Toolkit',
+			'Health & Household',
+			'Smart Home'
+	];
+	var buttonRow = document.getElementById("buttonRow");
+	for (let i = 0; i < buttons.length; i++)
+	{
+		var button = document.createElement("button");
+		button.innerHTML = buttons[i];
+		buttonRow.appendChild(button);
+	}
 }
