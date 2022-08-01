@@ -190,7 +190,7 @@ function init()
 		button.innerHTML = buttons[i];
 		buttonRow.appendChild(button);
 	}
-//	var item = {
+/*	var item = {
 		"products_and_categories":
 		{
 			"Bags":[
@@ -264,5 +264,5 @@ function init()
 		"release_date":"07/28/2022",
 		"release_week":"23SS22"
 	};
-//	console.log(item);
+	console.log(item);*/
 }
