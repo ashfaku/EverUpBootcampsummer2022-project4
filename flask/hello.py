@@ -4,10 +4,10 @@ import psycopg2
 app = Flask(__name__)
 
 #fill this info in yourself to fit your database information
-databaseName = ''
-userName = ''
-passw = ''
-portNumber = ;
+databaseName = 'postgres'
+userName = 'postgres'
+passw = 'ripple123'
+portNumber = 5432
 hoster = 'localhost'
 
 # establishing the connection
@@ -18,14 +18,15 @@ conn = psycopg2.connect(
     host = hoster,
     port = portNumber
 )
-cursor = conn.cursor()
-  
+
 # Creating a cursor object using the cursor() method
 cursor = conn.cursor()
-@app.route('/')
-def home_page():
+route = '/'
+@app.route(route)
+
+def get_info():
     # sample query for testing purposes
-    query = "SELECT * FROM items"
+    query = "SELECT item_name, image_url, price, category_name FROM items";
     cursor.execute(query)
     return render_template('index.html', embed=cursor.fetchall())
     
