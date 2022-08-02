@@ -4,17 +4,18 @@ import psycopg2
 app = Flask(__name__)
 
 #fill this info in yourself to fit your database information
-databaseName = 'postgres'
-userName = 'postgres'
-passw = 'ripple123'
-portNumber = 5432;
+databaseName = ''
+userName = ''
+passw = ''
+portNumber = ;
+hoster = 'localhost'
 
 # establishing the connection
 conn = psycopg2.connect(
     database = databaseName,
     user = userName,
     password = passw,
-    host = 'localhost',
+    host = hoster,
     port = portNumber
 )
 cursor = conn.cursor()
