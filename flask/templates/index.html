@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Project 4</title>
+		<style></style>
+		<link rel = "stylesheet" type = "text/css" href = "{{ url_for('static', filename='style.css') }}">
+		<script src = "{{url_for('static', filename = 'script.js')}}"></script>
+		<script src = "https://kit.fontawesome.com/0137bf0349.js" crossorigin = "anonymous"></script>
+		<script>
+			myVar = {{ embed | tojson }}
+	
+		</script>
+	</head>
+	<body onload = "init();">
+		<div id = "header">
+			<!-- https://codepen.io/sosuke/pen/Pjoqqp figure out what color we want for logo !-->
+			<div id = "left">
+				<img src = "{{url_for('static', filename = 'resources/logo.svg')}}" id = "logo">
+				<div id = "address">
+					<div id = "wrapperAdd">
+						<div id = "deliver">Hello, sign in</div>
+						<div id = "location">Account and Lists</div>
+					</div>
+				</div>
+			</div>
+			<div id = "right">
+				<select name = "cars" id = "inputLeft">
+					<option value="volvo">All</option>
+					<option value="saab">Saab</option>
+					<option value="mercedes">Mercedes</option>
+					<option value="audi">Audi</option>
+				</select>		
+				<input placeholder = "Type in what you wish for"></input>
+				<button></button>
+			</div>
+		</div>		
+		<div id = "slides">
+				<button onclick = "back();" id = "back">&lt </button>
+				<button onclick = "forward();" id = "forward">&gt </button>
+				<div id = "grid">
+					<div>Children's Goods</div>
+					<div style = "background-image: url('static/resources/school/one.jpg');" class = "square topsquare"></div>
+					<div style = "background-image: url('static/resources/school/two.jpg');" class = "square topsquare"></div>
+					<div style = "background-image: url('static/resources/school/three.jpg');" class = "square"></div>
+					<div style = "background-image: url('static/resources/school/four.jpg');" class = "square"></div>
+				</div>
+				<div id = "gridtwo">
+					<div>Vacation Apparel</div>
+					<div style = "background-image: url('static/resources/apparel/one.jpg');" class = "square topsquare"></div>
+					<div style = "background-image: url('static/resources/apparel/two.jpg');" class = "square topsquare"></div>
+					<div style = "background-image: url('static/resources/apparel/three.jpg');" class = "square"></div>
+					<div style = "background-image: url('static/resources/apparel/four.jpg');" class = "square"></div>
+				</div>
+		</div>
+		<div id = "buttonRow"></div>
+		<div id = "mainPageContent"></div>
+		<!--
+			<h1>{{embed}}</h1>
+		!-->
+	</body>
+</html>

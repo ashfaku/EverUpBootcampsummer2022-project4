@@ -40,6 +40,11 @@ function back()
 }
 function init()
 {
+	for (let i = 0; i < myVar.length; i++)
+	{
+		console.log(myVar[i]);
+		// python Postgresql data!!!!  owowowowowowowowowo
+	}
 	var slides = document.getElementById("slides");
 	var images = ['two.jpg', 'one.jpg', 'three.jpg'];
 	for (let i = 0; i < images.length; i++)
@@ -47,7 +52,7 @@ function init()
 		var div = document.createElement("div");
 		slides.appendChild(div);
 		slideList.push(div);
-		div.style.backgroundImage = `url("resources/slides/${images[i]}")`;
+		div.style.backgroundImage = `url("static/resources/slides/${images[i]}")`
 		div.classList.add("slide");
 	}	
 	myMove();
@@ -56,78 +61,78 @@ function init()
 		{
 			title: "Vacation Apparel",
 			images: [
-				'resources/apparel/one.jpg', 
-				'resources/apparel/two.jpg', 
-				'resources/apparel/three.jpg', 
-				'resources/apparel/four.jpg'
+				'static/resources/apparel/one.jpg', 
+				'static/resources/apparel/two.jpg', 
+				'static/resources/apparel/three.jpg', 
+				'static/resources/apparel/four.jpg'
 			]
 		},
 		{
 			title: "Vacation Apparel",
 			images: [
-				'resources/apparel/one.jpg',
-				'resources/apparel/two.jpg', 
-				'resources/apparel/three.jpg', 
-				'resources/apparel/four.jpg'
+				'static/resources/apparel/one.jpg',
+				'static/resources/apparel/two.jpg', 
+				'static/resources/apparel/three.jpg', 
+				'static/resources/apparel/four.jpg'
 			]
 		},
 		{
 			title: "Vacation Apparel",
 			images: [
-				'resources/apparel/one.jpg', 
-				'resources/apparel/two.jpg', 
-				'resources/apparel/three.jpg', 
-				'resources/apparel/four.jpg'
+				'static/resources/apparel/one.jpg', 
+				'static/resources/apparel/two.jpg', 
+				'static/resources/apparel/three.jpg', 
+				'static/resources/apparel/four.jpg'
 			]
 		
 		},
 		{
 			title: "Vacation Apparel",
-			images: ['resources/apparel/one.jpg', 'resources/apparel/two.jpg', 'resources/apparel/three.jpg', 'resources/apparel/four.jpg']
+			images: ['static/resources/apparel/one.jpg', 'static/resources/apparel/two.jpg', 'static/resources/apparel/three.jpg', 'static/resources/apparel/four.jpg']
 		},
 		{
 			title: "Vacation Apparel",
-			images: ['resources/apparel/one.jpg', 'resources/apparel/two.jpg', 'resources/apparel/three.jpg', 'resources/apparel/four.jpg']
+			images: ['static/resources/apparel/one.jpg', 'static/resources/apparel/two.jpg', 'static/resources/apparel/three.jpg', 'static/resources/apparel/four.jpg']
 		},
 		{
 			title: "Vacation Apparel",
-			images: ['resources/apparel/one.jpg', 'resources/apparel/two.jpg', 'resources/apparel/three.jpg', 'resources/apparel/four.jpg']
+			images: ['static/resources/apparel/one.jpg', 'static/resources/apparel/two.jpg', 'static/resources/apparel/three.jpg', 'static/resources/apparel/four.jpg']
 		},
 		{
 			title: "Vacation Apparel",
-			images: ['resources/apparel/one.jpg', 'resources/apparel/two.jpg', 'resources/apparel/three.jpg', 'resources/apparel/four.jpg']
+			images: ['static/resources/apparel/one.jpg', 'static/resources/apparel/two.jpg', 'static/resources/apparel/three.jpg', 'static/resources/apparel/four.jpg']
 		},
 		{
 			title: "Vacation Apparel",
-			images: ['resources/apparel/one.jpg', 'resources/apparel/two.jpg', 'resources/apparel/three.jpg', 'resources/apparel/four.jpg']
+			images: ['static/resources/apparel/one.jpg', 'static/resources/apparel/two.jpg', 'static/resources/apparel/three.jpg', 'static/resources/apparel/four.jpg']
 		},
 		{
 			title: "Vacation Apparel",
-			images: ['resources/apparel/one.jpg', 'resources/apparel/two.jpg', 'resources/apparel/three.jpg', 'resources/apparel/four.jpg']
+			images: ['static/resources/apparel/one.jpg', 'static/resources/apparel/two.jpg', 'static/resources/apparel/three.jpg', 'static/resources/apparel/four.jpg']
 		},
 		{
 			title: "Vacation Apparel",
-			images: ['resources/apparel/one.jpg', 'resources/apparel/two.jpg', 'resources/apparel/three.jpg', 'resources/apparel/four.jpg']
+			images: ['static/resources/apparel/one.jpg', 'static/resources/apparel/two.jpg', 'static/resources/apparel/three.jpg', 'static/resources/apparel/four.jpg']
 		},
 		{
 			title: "Vacation Apparel",
-			images: ['resources/apparel/one.jpg', 'resources/apparel/two.jpg', 'resources/apparel/three.jpg', 'resources/apparel/four.jpg']
+			images: ['static/resources/apparel/one.jpg', 'static/resources/apparel/two.jpg', 'static/resources/apparel/three.jpg', 'static/resources/apparel/four.jpg']
 		},
 		{
 			title: "Vacation Apparel",
-			images: ['resources/apparel/one.jpg', 'resources/apparel/two.jpg', 'resources/apparel/three.jpg', 'resources/apparel/four.jpg']
+			images: ['static/resources/apparel/one.jpg', 'static/resources/apparel/two.jpg', 'static/resources/apparel/three.jpg', 'static/resources/apparel/four.jpg']
 		},
 		{
 			title: "Vacation Apparel",
-			images: ['resources/apparel/one.jpg', 'resources/apparel/two.jpg', 'resources/apparel/three.jpg', 'resources/apparel/four.jpg']
+			images: ['static/resources/apparel/one.jpg', 'static/resources/apparel/two.jpg', 'static/resources/apparel/three.jpg', 'static/resources/apparel/four.jpg']
 		},
 		{
 			title: "Vacation Apparel",
-			images: ['resources/apparel/one.jpg', 'resources/apparel/two.jpg', 'resources/apparel/three.jpg', 'resources/apparel/four.jpg']
+			images: ['static/resources/apparel/one.jpg', 'static/resources/apparel/two.jpg', 'static/resources/apparel/three.jpg', 'static/resources/apparel/four.jpg']
 		},
 		{
 			title: "Vacation Apparel",
-			images: ['resources/apparel/one.jpg', 'resources/apparel/two.jpg', 'resources/apparel/three.jpg', 'resources/apparel/four.jpg']
+			images: ['static/resources/apparel/one.jpg', 'static/resources/apparel/two.jpg', 'static/resources/apparel/three.jpg', 'static/resources/apparel/four.jpg']
 		}
 	];
 	for (let i = 0; i < saleContent.length; i++)
@@ -140,7 +145,7 @@ function init()
 		
 		var grid = document.createElement("div");
 		grid.classList.add("grid");
-		console.log(saleContent[i]);
+	//	console.log(saleContent[i]);
 		var images = saleContent[i].images;
 		for (let j = 0; j < images.length; j++)
 		{
