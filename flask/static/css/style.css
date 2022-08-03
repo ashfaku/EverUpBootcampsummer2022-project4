@@ -90,7 +90,7 @@ input
 	padding: 0%;
 	max-height: 52%;
 }
-#right button
+#right #search
 {
 	min-width: 7%;
 	text-align: center;
@@ -98,7 +98,7 @@ input
 	font-size: 1vw;
 	transform: translateY(30%) translateX(-15%);
 	border: none;
-	background: url('resources/glass.svg') no-repeat center center fixed;
+	background: url('../resources/glass.svg') no-repeat center center fixed;
 	background-color: white;
 }
 
@@ -308,13 +308,13 @@ input
 
 @media (min-width: 768px) 
 {
-	#buttonRow button 
+	#buttonRow button, #logout:active
 	{
 		padding: 0.25em 0.75em;
 	}
 }
 
-#buttonRow button:active
+#buttonRow button:active, #logout:active
 { 
 	box-shadow: 0px 0px 0px 0px;
 	top: 5px;
@@ -336,7 +336,13 @@ input
 	background-image:-webkit-linear-gradient(rgba(255,255,255,.3) 20%,transparent 20%,transparent 40%,rgba(255, 255, 255, 0.3) 40%,rgba(255,255,255,.3) 60%,transparent 60%,transparent 80%,rgba(255, 255, 255, 0.3) 80%);
 	border-radius: 10px;
 }
-#buttonRow button
+#logout
+{
+	height: 80% !important;
+	position: relative; 
+	right: 0;
+}
+#buttonRow button, #logout
 {
 	height: 100%;
 	min-width: 10%;

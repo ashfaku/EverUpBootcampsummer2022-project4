@@ -4,6 +4,11 @@ var i = 0;
 let direction = window.innerWidth / 750;
 var slideList = [];
 let speed = 5;
+function search()
+{
+	console.log(document.getElementById('input').value);
+	window.location = `/search/${document.getElementById('input').value}`;
+}
 function frame() 
 {
 	if (pos >= (window.innerWidth*3)) 

@@ -8,8 +8,7 @@
 		<script src = "{{url_for('static', filename = 'javascript/script.js')}}"></script>
 		<script src = "https://kit.fontawesome.com/0137bf0349.js" crossorigin = "anonymous"></script>
 		<script>
-			myVar = {{ embed | tojson }}
-	
+			myVar = [];
 		</script>
 	</head>
 	<body onload = "init();">
@@ -19,7 +18,7 @@
 				<img src = "{{url_for('static', filename = 'resources/logo.svg')}}" id = "logo">
 				<div id = "address">
 					<div id = "wrapperAdd">
-						<div id = "deliver">Hello, sign in</div>
+						<div id = "deliver">Hello, {{ username }}</div>
 						<div id = "location">Account and Lists</div>
 					</div>
 				</div>
@@ -31,8 +30,9 @@
 					<option value="mercedes">Mercedes</option>
 					<option value="audi">Audi</option>
 				</select>		
-				<input placeholder = "Type in what you wish for"></input>
-				<button></button>
+				<input placeholder = "Type in what you wish for" id = "input"></input>
+				<button id = "search" type="button" onclick="window.location.href='{{ url_for( 'search', user_input=1) }}';"></button>
+				<button id = "logout" type="button" onclick = "window.location.href = '{{ url_for( 'logout' ) }}';">Logout</button>
 			</div>
 		</div>		
 		<div id = "slides">
