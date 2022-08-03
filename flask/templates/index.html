@@ -30,8 +30,10 @@
 					<option value="mercedes">Mercedes</option>
 					<option value="audi">Audi</option>
 				</select>		
-				<input placeholder = "Type in what you wish for" id = "input"></input>
-				<button id = "search" type="button" onclick="window.location.href='{{ url_for( 'search', user_input=1) }}';"></button>
+				<form id = "form" action = "{{ url_for('search') }}" method="post">
+					<input type = "text" name = "value" id = "input" placeholder = "Type in what you wish for"></input>
+					<input id = "search" type = "submit" value = "" name = "b">
+				</form>			
 				<button id = "logout" type="button" onclick = "window.location.href = '{{ url_for( 'logout' ) }}';">Logout</button>
 			</div>
 		</div>		

@@ -126,13 +126,23 @@ def profile():
     # User is not loggedin redirect to login page
     return redirect(url_for('login'))
 
-@app.route('/search')
-def search(user_input):   
+@app.route('/search', methods=['GET', 'POST'])
+def search():   
+    input = request.form['value']
+    print(input)
+    input = input.split()
+    print(input)
+    cursor = conn.cursor(cursor_factory=psycopg2.extras.DictCursor)
+    query = "SELECT * FROM items WHERE item_name LIKE '%" + input[0] + "%' "
+    for index, item in enumerate(input):
+        if index > 0:
+            query += "OR item_name LIKE '%" + item + "%' "
+    print(query)
+    cursor.execute(query)  
     # waiting for hori's file
-    print(user_input);
-    queryResults = 1
-    return render_template('index.html');
-
+    queryResults = cursor.fetchall()
+    print(queryResults)
+    return "Hello"
  
 if __name__ == "__main__":
     app.run(debug=True)

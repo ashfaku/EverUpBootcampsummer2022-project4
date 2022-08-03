@@ -6,8 +6,9 @@ var slideList = [];
 let speed = 5;
 function search()
 {
-	console.log(document.getElementById('input').value);
-	window.location = `/search/${document.getElementById('input').value}`;
+	var url = "{{ url_for( 'search', user_input=" + document.getElementById('input').value + ") }}";
+	console.log(url);
+	window.location = url;
 }
 function frame() 
 {
