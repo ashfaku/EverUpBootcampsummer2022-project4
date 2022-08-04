@@ -31,7 +31,7 @@
 					<option value="audi">Audi</option>
 				</select>		
 				<form id = "form" action = "{{ url_for('search') }}" method="post">
-					<input type = "text" name = "value" id = "input" placeholder = "Type in what you wish for"></input>
+					<input type = "text" name = "value" id = "input" placeholder = "Type in what you wish for" required></input>
 					<input id = "search" type = "submit" value = "" name = "b">
 				</form>			
 				<button id = "logout" type="button" onclick = "window.location.href = '{{ url_for( 'logout' ) }}';">Logout</button>

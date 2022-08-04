@@ -2,9 +2,11 @@
 from flask import Flask, request, session, redirect, url_for, render_template, flash
 import psycopg2 #pip install psycopg2
 import psycopg2.extras
+from psycopg2.extras import RealDictCursor
 import re 
+import json
 from werkzeug.security import generate_password_hash, check_password_hash
- 
+
 app = Flask(__name__)
 app.secret_key = 'cairocoders-ednalan'
  
@@ -129,10 +131,15 @@ def profile():
 @app.route('/search', methods=['GET', 'POST'])
 def search():   
     input = request.form['value']
+    if len(input) == 0:
+        flash('Required field!')
+        return redirect(url_for('home'))
+      
     print(input)
     input = input.split()
     print(input)
     cursor = conn.cursor(cursor_factory=psycopg2.extras.DictCursor)
+    
     query = "SELECT * FROM items WHERE item_name LIKE '%" + input[0] + "%' "
     for index, item in enumerate(input):
         if index > 0:
@@ -140,9 +147,14 @@ def search():
     print(query)
     cursor.execute(query)  
     # waiting for hori's file
+    
     queryResults = cursor.fetchall()
-    print(queryResults)
-    return "Hello"
- 
+    r = []
+    for item in queryResults:
+        # print(json.dumps(item))
+        r.append(item)
+    r = json.dumps(r)
+    print(r)
+    return render_template('search.html', queryResults=r) 
 if __name__ == "__main__":
     app.run(debug=True)

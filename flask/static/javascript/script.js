@@ -4,6 +4,78 @@ var i = 0;
 let direction = window.innerWidth / 750;
 var slideList = [];
 let speed = 5;
+function resultDisplay()
+{
+	var container = document.getElementById("r");
+	for (let i = 0; i < list.length; i++)
+	{
+		console.log(list[i]);
+		var pro = document.createElement("div");
+		pro.classList.add("pro");
+	
+		var img = document.createElement("img");
+		img.src = list[i][2];
+		img.style = "object-fit: contain;";
+		pro.appendChild(img);
+		
+		
+		var des = document.createElement("div");
+		des.classList.add("des");
+		var something = document.createElement("span");
+		something.innerHTML = list[i][0];
+		des.appendChild(something);
+		
+		var h5 = document.createElement("h5");
+		h5.innerHTML = list[i][1];
+		des.appendChild(h5);
+		var starList = document.createElement("div");
+		starList.classList.add("star");
+		for (let i = 0; i < 5; i++)
+		{
+			var star = document.createElement("i");
+			star.classList.add("fa");	
+			star.classList.add("fa-star");
+			star.classList.add("checked");
+			starList.appendChild(star);
+		}
+		des.appendChild(starList);
+		
+		var price = document.createElement("h4");
+		price.innerHTML = "$" + (list[i][4]/100);
+		des.appendChild(price);
+		
+		var cartWrap = document.createElement("a");
+		cartWrap.href  = "#";
+		des.appendChild(cartWrap);
+		
+		var cart = document.createElement("i");
+		cart.classList.add("fa");	
+		cart.classList.add("fa-shopping-cart");
+		cart.classList.add("cart");
+		cartWrap.appendChild(cart);
+		
+		pro.appendChild(des);
+		container.appendChild(pro);
+	}
+}
+/*
+<div class="pro">
+//	<img style="object-fit: contain;" src="https://0.soompi.io/wp-content/uploads/2020/06/01082120/gfriend-19.jpeg">
+	<div class="des">
+		<span> something</span>
+		<h5>product name</h5>
+		<div class="star">
+			<i class ="fa fa-star checked"></i>
+			<i class ="fa fa-star checked"></i>
+			<i class ="fa fa-star checked"></i>
+			<i class ="fa fa-star checked"></i>
+			<i class ="fa fa-star checked"></i>
+		</div>
+		<h4>$30</h4>
+		<a href="#"><i class="fa fa-shopping-cart cart"></i></a>
+	</div>
+</div>
+*/
 function search()
 {
 	var url = "{{ url_for( 'search', user_input=" + document.getElementById('input').value + ") }}";
