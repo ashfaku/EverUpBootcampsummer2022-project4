@@ -6,6 +6,13 @@ var slideList = [];
 let speed = 5;
 function resultDisplay()
 {
+	for (let i = 0; i < names.length; i++)
+	{
+		var option = document.createElement("option");
+		option.value = names[i];
+		option.innerHTML = names[i];
+		document.getElementById("inputLeft").appendChild(option);
+	}	
 	var container = document.getElementById("r");
 	for (let i = 0; i < list.length; i++)
 	{
@@ -116,13 +123,12 @@ function back()
 	if (pos > window.innerWidth)
 		pos -= window.innerWidth;
 }
+function shrink(array)
+{
+	console.log(array);
+}
 function init()
 {
-	for (let i = 0; i < myVar.length; i++)
-	{
-		console.log(myVar[i]);
-		// python Postgresql data!!!!  owowowowowowowowowo
-	}
 	var slides = document.getElementById("slides");
 	var images = ['two.jpg', 'one.jpg', 'three.jpg'];
 	for (let i = 0; i < images.length; i++)
@@ -213,25 +219,43 @@ function init()
 			images: ['static/resources/apparel/one.jpg', 'static/resources/apparel/two.jpg', 'static/resources/apparel/three.jpg', 'static/resources/apparel/four.jpg']
 		}
 	];
-	for (let i = 0; i < saleContent.length; i++)
+	for (let i = 0; i < names.length; i++)
 	{
 		var container = document.createElement("div");
 		
 		var header = document.createElement("div");
-		header.innerHTML = saleContent[i].title;
+		header.innerHTML = names[i];
 		container.appendChild(header);
+		var option = document.createElement("option");
+		option.value = names[i];
+		option.innerHTML = names[i];
+		document.getElementById("inputLeft").appendChild(option);
 		
 		var grid = document.createElement("div");
 		grid.classList.add("grid");
-	//	console.log(saleContent[i]);
-		var images = saleContent[i].images;
+		
+		var button = document.createElement("button");
+		button.innerHTML = "V";
+		button.id = "x";
+		var length = names[i].length;
+		/*		
+			var num = (4*(21-length));
+			num = Math. ceil(num / 10) * 10;
+			button.style.left = (num)+ "%";
+			header.appendChild(button);
+			var array = [];
+		*/	
+		var images = display[i];
 		for (let j = 0; j < images.length; j++)
 		{
 			var img = document.createElement("div");
 			img.classList.add("square");
 			img.style.backgroundImage = `url('${images[j]}')`;	
 			grid.appendChild(img);
+			//array.push(img);
 		}
+		//console.log(array);
+		//button.onclick = () => shrink(array);
 		container.appendChild(grid);
 		mainPageContent.appendChild(container);
 	}

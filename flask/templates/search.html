@@ -12,12 +12,11 @@
 		<script src = "{{url_for('static', filename = 'javascript/script.js')}}"></script>
 		<script>
 			{% autoescape off %}
-				list = {{ queryResults }};
+				list = {{ ret['display'] }};
+				names = {{ ret['names'] }};
 			{% endautoescape %}
 		</script>
-        
         <style>
-				
         </style>
         
     </head>
@@ -33,20 +32,21 @@
 		<div id = "header">
 			<!-- https://codepen.io/sosuke/pen/Pjoqqp figure out what color we want for logo !-->
 			<div id = "left">
-				<img src = "{{url_for('static', filename = 'resources/logo.svg')}}" id = "logo">
-				<div id = "address">
-					<div id = "wrapperAdd">
-						<div id = "deliver">Hello, {{ username }}</div>
-						<div id = "location">Account and Lists</div>
+				<a href="{{ url_for('home') }}">
+					<img src = "{{url_for('static', filename = 'resources/logo.svg')}}" id = "logo">
+				</a>
+				<a href="{{ url_for('profile') }}">
+					<div id = "address">
+						<div id = "wrapperAdd">
+							<div id = "deliver">Hello, {{ ret['username'] }}</div>
+							<div id = "location">Account and Lists</div>
+						</div>
 					</div>
-				</div>
+				</a>
 			</div>
 			<div id = "right">
 				<select name = "cars" id = "inputLeft">
-					<option value="volvo">All</option>
-					<option value="saab">Saab</option>
-					<option value="mercedes">Mercedes</option>
-					<option value="audi">Audi</option>
+					<option value="all">All</option>
 				</select>		
 				<form id = "form" action = "{{ url_for('search') }}" method="post">
 					<input type = "text" name = "value" id = "input" placeholder = "Type in what you wish for"></input>

@@ -27,8 +27,27 @@ def home():
     # Check if user is loggedin
     if 'loggedin' in session:
     
+        cursor = conn.cursor(cursor_factory=psycopg2.extras.DictCursor)
+
+        query = "SELECT * FROM home_display"
+        print(query)
+        cursor.execute(query)  
+        # waiting for hori's file
+
+        queryResults = cursor.fetchall()
         # User is loggedin show them the home page
-        return render_template('index.html', username=session['username'])
+        lists = []
+        names = []
+        for item in queryResults:
+            names.append(item[0])
+            lists.append(item[1].split())
+        data = {
+            "username": session['username'],
+            "display": lists,
+            "names" : names
+            
+        }
+        return render_template('index.html', data=data)
     # User is not loggedin redirect to login page
     return redirect(url_for('login'))
  
@@ -134,7 +153,6 @@ def search():
     if len(input) == 0:
         flash('Required field!')
         return redirect(url_for('home'))
-      
     print(input)
     input = input.split()
     print(input)
@@ -153,8 +171,20 @@ def search():
     for item in queryResults:
         # print(json.dumps(item))
         r.append(item)
-    r = json.dumps(r)
-    print(r)
-    return render_template('search.html', queryResults=r) 
+    r = json.dumps(r)  
+    query = "SELECT title FROM home_display"
+    print(query)
+    cursor.execute(query)  
+  
+    queryResults = cursor.fetchall()
+    names = []
+    for item in queryResults:
+        names.append(item[0])
+    ret = {
+        "names" : names,
+        "display": r,
+        "username": session['username']
+    }
+    return render_template('search.html', ret=ret) 
 if __name__ == "__main__":
     app.run(debug=True)

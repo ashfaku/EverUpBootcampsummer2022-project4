@@ -8,30 +8,36 @@
 		<script src = "{{url_for('static', filename = 'javascript/script.js')}}"></script>
 		<script src = "https://kit.fontawesome.com/0137bf0349.js" crossorigin = "anonymous"></script>
 		<script>
-			myVar = [];
+			{% autoescape off %}
+				display = {{ data.display }}
+				names = {{ data.names }};
+			{% endautoescape %}	
+			console.log(display);
+			console.log(names);
 		</script>
 	</head>
 	<body onload = "init();">
 		<div id = "header">
 			<!-- https://codepen.io/sosuke/pen/Pjoqqp figure out what color we want for logo !-->
 			<div id = "left">
-				<img src = "{{url_for('static', filename = 'resources/logo.svg')}}" id = "logo">
-				<div id = "address">
-					<div id = "wrapperAdd">
-						<div id = "deliver">Hello, {{ username }}</div>
-						<div id = "location">Account and Lists</div>
+				<a href="{{ url_for('home') }}">
+					<img src = "{{url_for('static', filename = 'resources/logo.svg')}}" id = "logo">
+				</a>
+				<a href="{{ url_for('profile') }}">
+					<div id = "address">
+						<div id = "wrapperAdd">
+							<div id = "deliver">Hello, {{ data['username'] }}</div>
+							<div id = "location">Account and Lists</div>
+						</div>
 					</div>
-				</div>
+				</a>
 			</div>
 			<div id = "right">
-				<select name = "cars" id = "inputLeft">
-					<option value="volvo">All</option>
-					<option value="saab">Saab</option>
-					<option value="mercedes">Mercedes</option>
-					<option value="audi">Audi</option>
+				<select name = "list" id = "inputLeft">
+					<option value = "all">All</option>
 				</select>		
 				<form id = "form" action = "{{ url_for('search') }}" method="post">
-					<input type = "text" name = "value" id = "input" placeholder = "Type in what you wish for" required></input>
+					<input type = "text" name = "value" id = "input" placeholder = "Type in what you wish for"></input>
 					<input id = "search" type = "submit" value = "" name = "b">
 				</form>			
 				<button id = "logout" type="button" onclick = "window.location.href = '{{ url_for( 'logout' ) }}';">Logout</button>
